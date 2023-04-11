@@ -40,7 +40,7 @@ def ajuda():
 
 Comandos:
 
-  lista\_telefonica               Imprime na tela a lista atualizada de contactos
+lista\_telefonica               Imprime na tela a lista atualizada de contactos
 
 adicionar                      Adiciona um novo contacto
 
@@ -67,6 +67,7 @@ help(ajuda)
 - Imprime na tela a lista atualizada de contactos.
 - Caso a lista de contactos esteja vazia, imprime na tela uma mensagem para que o usuário utilize a função adicionar() para adicionar contactos a referida lista.
 
+```python
 def lista\_telefonica():
 
 `    `print('-' \* 30)
@@ -90,6 +91,7 @@ def lista\_telefonica():
 `            `print(f'{k}: {v}')
 
 `        `print('-' \* 30)
+```
 
 **def adicionar()**
 
