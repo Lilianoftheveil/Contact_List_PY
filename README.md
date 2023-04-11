@@ -26,38 +26,38 @@ contactos = []
 
 números\_contactos = []
 ## Funções
-```python
+
 **def ajuda()**
 
 - Imprime na tela uma ajuda de como gerir o script da lista de contactos.
 
+```python
 def ajuda():
 
-`   `"""
+"""
 
-`    `- Ferramenta para gerir uma lista de contactos
+- Ferramenta para gerir uma lista de contactos
 
-`    `Comandos:
+Comandos:
 
-`    `lista\_telefonica               Imprime na tela a lista atualizada de contactos
+lista\_telefonica               Imprime na tela a lista atualizada de contactos
 
-`    `adicionar                      Adiciona um novo contacto
+adicionar                      Adiciona um novo contacto
 
-`    `editar [Id]                    Edita o contacto com o identificador [Id]
+editar [Id]                    Edita o contacto com o identificador [Id]
 
-`    `apagar [Id]                    Elimina o contacto com o identificador [Id]
+apagar [Id]                    Elimina o contacto com o identificador [Id]
 
-`    `ordem\_alfabetica               Apresenta a lista total de contactos por ordem alfabética
+ordem\_alfabetica               Apresenta a lista total de contactos por ordem alfabética
 
-`    `pesquisar [Nome]               Pesquisa e apresenta os resultados da procura por [Nome] na lista
+pesquisar [Nome]               Pesquisa e apresenta os resultados da procura por [Nome] na lista
 
-`    `importar [ficheiro]            Importa uma lista de contactos de um ficheiro [JSON]
+importar [ficheiro]            Importa uma lista de contactos de um ficheiro [JSON]
 
-`    `extrair [formato][ficheiro]    Extrai a lista de contactos para um ficheiro com um determinado formato 
+extrair [formato][ficheiro]    Extrai a lista de contactos para um ficheiro com um determinado formato 
+[YAML],[TXT] ou [XML]. Por padrão será [YAML]
 
-`                                   `[YAML],[TXT] ou [XML]. Por padrão será [YAML]
-
-`    `"""
+"""
 ```
 
 help(ajuda)
