@@ -26,6 +26,7 @@ contactos = []
 
 números\_contactos = []
 ## Funções
+```python
 **def ajuda()**
 
 - Imprime na tela uma ajuda de como gerir o script da lista de contactos.
@@ -57,6 +58,7 @@ def ajuda():
 `                                   `[YAML],[TXT] ou [XML]. Por padrão será [YAML]
 
 `    `"""
+```
 
 help(ajuda)
 
