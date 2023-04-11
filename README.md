@@ -40,21 +40,21 @@ def ajuda():
 
 Comandos:
 
-lista\_telefonica               Imprime na tela a lista atualizada de contactos
+  lista\_telefonica               Imprime na tela a lista atualizada de contactos
 
-adicionar                      Adiciona um novo contacto
+  adicionar                      Adiciona um novo contacto
 
-editar [Id]                    Edita o contacto com o identificador [Id]
+  editar [Id]                    Edita o contacto com o identificador [Id]
 
-apagar [Id]                    Elimina o contacto com o identificador [Id]
+  apagar [Id]                    Elimina o contacto com o identificador [Id]
 
-ordem\_alfabetica               Apresenta a lista total de contactos por ordem alfabética
+  ordem\_alfabetica               Apresenta a lista total de contactos por ordem alfabética
 
-pesquisar [Nome]               Pesquisa e apresenta os resultados da procura por [Nome] na lista
+  pesquisar [Nome]               Pesquisa e apresenta os resultados da procura por [Nome] na lista
 
-importar [ficheiro]            Importa uma lista de contactos de um ficheiro [JSON]
+  importar [ficheiro]            Importa uma lista de contactos de um ficheiro [JSON]
 
-extrair [formato][ficheiro]    Extrai a lista de contactos para um ficheiro com um determinado formato 
+  extrair [formato][ficheiro]    Extrai a lista de contactos para um ficheiro com um determinado formato 
 [YAML],[TXT] ou [XML]. Por padrão será [YAML]
 
 """
@@ -70,27 +70,27 @@ help(ajuda)
 ```python
 def lista\_telefonica():
 
-`    `print('-' \* 30)
+  print('-' \* 30)
 
-`    `print('\tLista Telefónica')
+  print('\tLista Telefónica')
 
-`    `print('-' \* 30) 
+  print('-' \* 30) 
 
-`    `if len(contactos) == 0:
+  if len(contactos) == 0:
 
-`      `print('Ops, lista vazia!')
+    print('Ops, lista vazia!')
 
-`      `print('Utilize a função adicionar() para adicionar contactos.')
+    print('Utilize a função adicionar() para adicionar contactos.')
 
-`    `else:
+  else:
 
-`      `for p in contactos:
+    for p in contactos:
 
-`        `for k, v in p.items():
+      for k, v in p.items():
 
-`            `print(f'{k}: {v}')
+        print(f'{k}: {v}')
 
-`        `print('-' \* 30)
+       print('-' \* 30)
 ```
 
 **def adicionar()**
@@ -99,71 +99,73 @@ def lista\_telefonica():
 - Verifica se os números do contacto são do tipo *int*, caso contrário imprime na tela que o formato é inválido e pede ao usuário para digitar a informação novamente.
 - Adiciona todos os contactos do dicionário *dic\_contactos* para a lista *contactos*.
 
+```python
 def adicionar():
 
-`    `while True:
+  while True:
 
-`        `x = randint(0, 100000) + int(len(contactos))
+    x = randint(0, 100000) + int(len(contactos))
 
-`        `try:
+    try:
 
-`            `print(f"ID: {x}")
+      print(f"ID: {x}")
 
-`            `nome\_contacto = input('Nome: ').strip().title()
+      nome\_contacto = input('Nome: ').strip().title()
 
-`            `sobrenome\_contacto = input('Sobrenome: ').strip().title()
+      sobrenome\_contacto = input('Sobrenome: ').strip().title()
 
-`            `email = input('email: ').strip().lower()
+      email = input('email: ').strip().lower()
 
-`            `endereço = input('Endereço: ').strip().title()
+      endereço = input('Endereço: ').strip().title()
 
-`            `notas = input('Notas: ').strip().title()
+      notas = input('Notas: ').strip().title()
 
-`            `break
+      break
 
-`        `except ValueError:
+    except ValueError:
 
-`            `print('Desculpe, formato inválido!')
+      print('Desculpe, formato inválido!')
 
-`            `continue
+      continue
 
-`    `dic\_contactos['Id'] = x
+  dic\_contactos['Id'] = x
+  
+  dic\_contactos['Nome'] = nome\_contacto
 
-`    `dic\_contactos['Nome'] = nome\_contacto
+  dic\_contactos['Sobrenome'] = sobrenome\_contacto
 
-`    `dic\_contactos['Sobrenome'] = sobrenome\_contacto
+  dic\_contactos['email'] = email
 
-`    `dic\_contactos['email'] = email
+  dic\_contactos['Endereço'] = endereço
+  
+  dic\_contactos['Notas'] = notas
 
-`    `dic\_contactos['Endereço'] = endereço
+  while True:
 
-`    `dic\_contactos['Notas'] = notas
+    try:
 
-`    `while True:
+      numero = int(input('Quantos números esse contato possui? '))
 
-`        `try:
+      numeros\_contactos.clear()
 
-`            `numero = int(input('Quantos números esse contato possui? '))
+      for i in range(0, numero):
+        
+        num = int(input(f'Número {i+1}: '))
+        
+        numeros\_contactos.append(num)
 
-`            `numeros\_contactos.clear()
+        dic\_contactos['Números'] = numeros\_contactos[:]
 
-`            `for i in range(0, numero):
+      contactos.append(dic\_contactos.copy())
 
-`                `num = int(input(f'Número {i+1}: '))
+      break
 
-`                `numeros\_contactos.append(num)
+    except ValueError:
 
-`                `dic\_contactos['Números'] = numeros\_contactos[:]
-
-`            `contactos.append(dic\_contactos.copy())
-
-`            `break
-
-`        `except ValueError:
-
-`            `print('Desculpe, formato inválido!')
-
-`            `continue
+      print('Desculpe, formato inválido!')
+      
+      continue
+```
 
 **def editar()**
 
@@ -171,71 +173,73 @@ def adicionar():
 - Após o usuário passar o parâmetro Id pretendido, a função irá pedir para o usuário digitar as informações de *id, nome, sobrenome, email, endereço, notas e números do contacto* novamente.
 - :param Id: identificador do contacto.
 
+```python
 def editar(Id):
 
-`    `if len(contactos) == 0:
+  if len(contactos) == 0:
+    
+    print('Ops, lista vazia!')
 
-`        `print('Ops, lista vazia!')
+    print('Utilize a função adicionar() para adicionar contactos.')
 
-`        `print('Utilize a função adicionar() para adicionar contactos.')
+  else:
 
-`    `else:
+    Id = int(Id)
 
-`        `Id = int(Id)
+    for p in range(len(contactos)):
 
-`        `for p in range(len(contactos)):
+      if contactos[p]['Id'] == Id:
 
-`            `if contactos[p]['Id'] == Id:
+        x = contactos[p]['Id']
 
-`                `x = contactos[p]['Id']
+        while True:
 
-`                `while True:
+          try:
 
-`                    `try:
+            contactos[p]['Nome']  = input('Nome: ').strip().title()
 
-`                        `contactos[p]['Nome']  = input('Nome: ').strip().title()
+            contactos[p]['Sobrenome'] = input('Sobrenome: ').strip().title()
 
-`                        `contactos[p]['Sobrenome'] = input('Sobrenome: ').strip().title()
+            contactos[p]['email'] = input('email: ').strip().lower()
 
-`                        `contactos[p]['email'] = input('email: ').strip().lower()
+            contactos[p]['Endereço'] = input('Endereço: ').strip().title()
 
-`                        `contactos[p]['Endereço'] = input('Endereço: ').strip().title()
+            contactos[p]['Notas'] = input('Notas: ').strip().title()
 
-`                        `contactos[p]['Notas'] = input('Notas: ').strip().title()
+            break
+           
+           except ValueError:
 
-`                        `break
+            print('Desculpe, formato inválido!')
 
-`                    `except ValueError:
+            continue
 
-`                        `print('Desculpe, formato inválido!')
+          while True:
 
-`                        `continue
+            try:
 
-`                `while True:
+              numero = int(input('Quantos números esse contato possui? '))
 
-`                    `try:
+              numeros\_contactos.clear()
 
-`                        `numero = int(input('Quantos números esse contato possui? '))
+              for i in range(0, numero):
 
-`                        `numeros\_contactos.clear()
+                num = int(input(f'Número {i+1}: '))
 
-`                        `for i in range(0, numero):
+                numeros\_contactos.append(num)
 
-`                            `num = int(input(f'Número {i+1}: '))
+                contactos[p]['Números'] = numeros\_contactos[:]
 
-`                            `numeros\_contactos.append(num)
+              except ValueError:
 
-`                            `contactos[p]['Números'] = numeros\_contactos[:]
+                print('Desculpe, formato inválido!')
 
-`                    `except ValueError:
+                continue
 
-`                        `print('Desculpe, formato inválido!')
+               else:
 
-`                        `continue
-
-`                    `else:
-
-`                        `break
+                break
+```
 
 **def apagar()**
 
@@ -243,89 +247,95 @@ def editar(Id):
 - Após o usuário passar o parâmetro id pretendido, a função irá deletar o contacto da lista telefónica.
 - :param Id: identificador do contacto.
 
+```python
 def apagar(Id):
 
-`    `if len(contactos) == 0:
+  if len(contactos) == 0:
 
-`        `print('Ops, lista vazia!')
+    print('Ops, lista vazia!')
 
-`        `print('Utilize a função adicionar() para adicionar contactos.')
+    print('Utilize a função adicionar() para adicionar contactos.')
 
-`    `else:
+  else:
 
-`        `Id = int(Id)
+    Id = int(Id)
 
-`        `for p in range(len(contactos)):
+    for p in range(len(contactos)):
 
-`            `if contactos[p]['Id'] == Id:
+      if contactos[p]['Id'] == Id:
 
-`                `del contactos[p]
+        del contactos[p]
 
-`                `print("ID deletado com sucesso!")
+        print("ID deletado com sucesso!")
 
-`                `break
+        break
+```
 
 **def ordem\_alfabetica()**
 
 - Ordena todos os contactos da lista telefónica por ordem alfabética, a partir do nome.
 - Imprime na tela a lista atualizada de contactos por ordem alfabética, a partir do nome.
 
+```python
 def ordem\_alfabetica():
 
-`    `if len(contactos) == 0:
+  if len(contactos) == 0:
 
-`        `print('Ops, lista vazia!')
+    print('Ops, lista vazia!')
+    
+    print('Utilize a função adicionar() para adicionar contactos.')
 
-`        `print('Utilize a função adicionar() para adicionar contactos.')
+   else:
 
-`    `else:
+    contactos\_ordenado = sorted(contactos, key=itemgetter('Nome')) 
 
-`        `contactos\_ordenado = sorted(contactos, key=itemgetter('Nome')) 
+    print('-' \* 30)
 
-`        `print('-' \* 30)
+    print('\tLista Telefónica')
 
-`        `print('\tLista Telefónica')
+    print('       em ordem alfabética')
 
-`        `print('       em ordem alfabética')
+    print('-' \* 30) 
 
-`        `print('-' \* 30) 
+    for p in contactos\_ordenado:
 
-`        `for p in contactos\_ordenado:
+      for k, v in p.items():
 
-`            `for k, v in p.items():
+        print(f'{k}: {v}')
 
-`                `print(f'{k}: {v}')
-
-`            `print('-' \* 30)
+       print('-' \* 30)
+```
 
 **def pesquisar()**
 
 - Imprime na tela o contacto pesquisado.
 - :param Nome: nome do contacto.
 
+```python
 def pesquisar(Nome):
 
-`    `if len(contactos) == 0:
+  if len(contactos) == 0:
 
-`        `print('Ops, lista vazia!')
+    print('Ops, lista vazia!')
+    
+    print('Utilize a função adicionar() para adicionar contactos.')
 
-`        `print('Utilize a função adicionar() para adicionar contactos.')
+  else:
 
-`    `else:
+    for p in range(len(contactos)):
 
-`        `for p in range(len(contactos)):
+      if contactos[p]['Nome'] == Nome.title(): 
 
-`            `if contactos[p]['Nome'] == Nome.title(): 
+        print(contactos[p])
+        
+        break
 
-`                `print(contactos[p])
+       else:
 
-`                `break
+        print("Desculpa, o Nome deste contacto não se encontra no banco de dados.")
 
-`            `else:
-
-`                `print("Desculpa, o Nome deste contacto não se encontra no banco de dados.")
-
-`                `break
+        break
+```
 
 **def importar()**
 
@@ -338,13 +348,10 @@ def pesquisar(Nome):
 
 \*\* Usamos o ficheiro *importa\_contactos.json* que é um ficheiro JSON com informações fictícias de contactos. Esse ficheiro possui as seguintes chaves: id, nome, sobrenome e números.
 
+```python
 def importar(ficheiro):
 
-`    `f = open(ficheiro)
+  f = open(ficheiro)
 
-`    `novos\_contactos = json.load(f)
-
-
-
-**This document was truncated here because it was created in the Evaluation Mode.**
-**Created with an evaluation copy of Aspose.Words. To discover the full versions of our APIs please visit: https://products.aspose.com/words/**
+  novos\_contactos = json.load(f)
+```
