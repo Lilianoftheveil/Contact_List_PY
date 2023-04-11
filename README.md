@@ -40,7 +40,7 @@ def ajuda():
 
 Comandos:
 
-lista\_telefonica               Imprime na tela a lista atualizada de contactos
+  lista\_telefonica               Imprime na tela a lista atualizada de contactos
 
 adicionar                      Adiciona um novo contacto
 
