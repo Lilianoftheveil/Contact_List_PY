@@ -346,7 +346,7 @@ def pesquisar(Nome):
 - É necessário informar o caminho do ficheiro.
 - :param ficheiro: ficheiro a ser importado.
 
-\*\* Usamos o ficheiro *importa\_contactos.json* que é um ficheiro JSON com informações fictícias de contactos. Esse ficheiro possui as seguintes chaves: id, nome, sobrenome e números.
+\*\* Usamos o ficheiro *contact_import.json* que é um ficheiro JSON com informações fictícias de contactos. Esse ficheiro possui as seguintes chaves: id, nome, sobrenome e números.
 
 ```python
 def importar(ficheiro):
