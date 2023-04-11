@@ -1,6 +1,6 @@
 ## University of Minho - Python - I
 
-This was an Study of a Master's course.
+This was an Study of a Master's course, about Python programming.
 
 # Lista telefónica
 ## Objetivo
