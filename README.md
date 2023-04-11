@@ -1,3 +1,7 @@
+## University of Minho - Python - I
+
+This was an Study of a Master's course.
+
 # Lista telefónica
 ## Objetivo
 Criar um script em Python para gerir uma lista de contactos.
